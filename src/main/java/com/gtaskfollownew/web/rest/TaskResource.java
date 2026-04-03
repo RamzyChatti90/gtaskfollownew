@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -156,6 +157,18 @@ public class TaskResource {
         }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code GET  /tasks/dashboard} : get dashboard data.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the dashboard data.
+     */
+    @GetMapping("/dashboard")
+    public ResponseEntity<Map<String, Object>> getTaskDashboard() {
+        LOG.debug("REST request to get Task dashboard data");
+        Map<String, Object> dashboardData = taskService.getDashboardData();
+        return ResponseEntity.ok().body(dashboardData);
     }
 
     /**
