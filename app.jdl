@@ -1,0 +1,60 @@
+application {
+  config {
+    baseName gtaskfollownew
+    applicationType monolith
+    authenticationType jwt
+    buildTool maven
+    clientFramework angular
+    databaseType sql
+    devDatabaseType h2Disk
+    prodDatabaseType postgresql
+    packageName com.gtaskfollownew
+    serverPort 9000
+  }
+  entities *
+}
+
+enum PriorityEnum {
+    LOW
+    MEDIUM
+    HIGH
+    URGENT
+}
+
+enum StatusEnum {
+    TODO
+    IN_PROGRESS
+    DONE
+    BLOCKED
+}
+
+entity Task {
+    title String required
+    description String
+    priority PriorityEnum required
+    status StatusEnum required
+    dueDate LocalDate
+    createdAt Instant
+}
+
+entity Category {
+    name String required
+    color String
+    icon String
+}
+
+entity Comment {
+    content TextBlob required
+    createdAt Instant
+}
+
+relationship ManyToOne {
+    Task{assignee(login)} to User with builtInEntity
+    Task{category(name)} to Category
+    Comment{task(title)} to Task
+    Comment{author(login)} to User with builtInEntity
+}
+
+dto * with mapstruct
+service * with serviceImpl
+paginate * with pagination
