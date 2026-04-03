@@ -1,5 +1,6 @@
 package com.gtaskfollownew.service;
 
+import com.gtaskfollownew.service.dto.DashboardDataDTO;
 import com.gtaskfollownew.service.dto.TaskDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -63,4 +64,12 @@ public interface TaskService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Get aggregated dashboard data for the current user.
+     * This includes total active tasks, tasks by status, and the 5 most recent/urgent tasks.
+     *
+     * @return DashboardDataDTO containing aggregated data.
+     */
+    DashboardDataDTO getDashboardDataForCurrentUser();
 }
