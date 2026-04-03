@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "gtaskfollownew",
+    "buildTool": "maven",
+    "clientFramework": "angular",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "entities": ["Task", "Category", "Comment"],
+    "jhipsterVersion": "8.11.0",
+    "jwtSecretKey": "YjkzZmE0NjcyNmVhNzI2NzNiMzkxMGUxMDMxYTk5ODA5ZmFjMzFkZjE4MDViMjhjODdkYzZjOTdiNGNhY2M2NGFkZjYyOTc2MjYxNjcyZWQzZDE1YjQ0MGMzZjQxMGEwMWJiYTczMzU3MzNmYWMzODlkYTkyMTI0NzQ1YzYxMTc=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1775208378000,
+    "nativeLanguage": "en",
+    "packageName": "com.gtaskfollownew",
+    "prodDatabaseType": "postgresql",
+    "serverPort": "9000"
+  }
+}
